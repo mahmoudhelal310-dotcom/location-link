@@ -1,34 +1,65 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>تم الإرسال</title>
-</head>
-<body style="
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
-  font-family:Arial, sans-serif;
-  background-color:#f0f0f0;
-">
+<title>تنبيه</title>
 
-<div>
-  <h1 style="
-    font-size:40px;
-    color:#008000;
-    font-weight:bold;
-    margin-bottom:20px;
-  ">
-    تم ارسال الموقع بنجاح
-  </h1>
-  <p style="
-    font-size:28px;
+<!-- خط Google أجمل -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+  body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#fff5f5,#ffecec);
+    font-family:'Cairo', Arial, sans-serif;
+    text-align:center;
+  }
+  .card{
+    background:#ffffff;
+    padding:40px 30px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    max-width:420px;
+  }
+  .icon{
+    font-size:64px;
+    margin-bottom:15px;
+  }
+  .title{
+    font-size:34px;
+    font-weight:800;
+    color:#c40000;
+    margin-bottom:10px;
+  }
+  .subtitle{
+    font-size:26px;
+    font-weight:600;
     color:#000;
-  ">
-    الي محمود زارع
-  </p>
+    margin-bottom:20px;
+  }
+  .phone{
+    font-size:22px;
+    background:#f8f8f8;
+    padding:12px 18px;
+    border-radius:12px;
+    display:inline-block;
+    color:#111;
+    letter-spacing:1px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="icon">☠️</div>
+  <div class="title">تم ارسال الموقع بنجاح</div>
+  <div class="subtitle">إلى محمود زارع</div>
+  <div class="phone">📞 01128383026</div>
 </div>
 
 </body>
