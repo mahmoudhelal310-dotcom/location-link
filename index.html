@@ -4,45 +4,32 @@
 <meta charset="UTF-8">
 <title>EnvoyerMaPosition</title>
 </head>
-
 <body style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
   text-align:center;
-  margin-top:80px;
-  font-family:Arial;
+  font-family:Arial, sans-serif;
+  background-color:#f0f0f0;
 ">
 
-<h2 id="status">جاري تحديد الموقع…</h2>
-<p id="name" style="font-size:18px;font-weight:bold;"></p>
-
-<script>
-navigator.geolocation.getCurrentPosition(
-  function(pos) {
-    let lat = pos.coords.latitude;
-    let lon = pos.coords.longitude;
-
-    // الرسالة اللي هتتبعت
-    let msg =
-      "موقعي الحالي:\n" +
-      "https://maps.google.com/?q=" + lat + "," + lon;
-
-    let phone = "201122127606"; // رقمك
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
-
-    // إظهار الرسالة على الصفحة
-    document.getElementById("status").innerText = "تم إرسال الموقع بنجاح";
-    document.getElementById("name").innerText = "محمود زارع";
-
-    // فتح واتساب بعد ثانية
-    setTimeout(function() {
-      window.location.href = url;
-    }, 1200);
-  },
-  function() {
-    document.getElementById("status").innerText =
-      "لم يتم السماح بمشاركة الموقع";
-  }
-);
-</script>
+<div>
+  <h1 style="
+    font-size:36px;
+    color:#008000;
+    font-weight:bold;
+    margin-bottom:20px;
+  ">
+    تم ارسال الموقع بنجاح
+  </h1>
+  <p style="
+    font-size:28px;
+    color:#000;
+  ">
+    الي محمود زارع
+  </p>
+</div>
 
 </body>
 </html>
