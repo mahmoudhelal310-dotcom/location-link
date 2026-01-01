@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Location</title>
+</head>
+<body style="text-align:center;margin-top:50px;font-size:18px">
+
+<button onclick="getLocation()">اضغط لتحديد الموقع</button>
+<p id="loc"></p>
+
+<script>
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(
+    function(pos) {
+      let lat = pos.coords.latitude;
+      let lon = pos.coords.longitude;
+      document.getElementById("loc").innerHTML =
+        `<a href="https://maps.google.com/?q=${lat},${lon}" target="_blank">
+        افتح الموقع على الخريطة</a>`;
+    },
+    function() {
+      document.getElementById("loc").innerHTML = "لم يتم السماح بالموقع";
+    }
+  );
+}
+</script>
+
+</body>
+</html>
