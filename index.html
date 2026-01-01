@@ -2,11 +2,17 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>إرسال الموقع</title>
+<title>EnvoyerMaPosition</title>
 </head>
-<body style="text-align:center;margin-top:50px;font-size:18px">
 
-<h3>جاري تحديد الموقع…</h3>
+<body style="
+  text-align:center;
+  margin-top:80px;
+  font-family:Arial;
+">
+
+<h2 id="status">جاري تحديد الموقع…</h2>
+<p id="name" style="font-size:18px;font-weight:bold;"></p>
 
 <script>
 navigator.geolocation.getCurrentPosition(
@@ -14,18 +20,26 @@ navigator.geolocation.getCurrentPosition(
     let lat = pos.coords.latitude;
     let lon = pos.coords.longitude;
 
-    let msg = 
+    // الرسالة اللي هتتبعت
+    let msg =
       "موقعي الحالي:\n" +
       "https://maps.google.com/?q=" + lat + "," + lon;
 
-    let phone = "201122127606"; // ← حط رقمك بدون +
-
+    let phone = "201122127606"; // رقمك
     let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
 
-    window.location.href = url;
+    // إظهار الرسالة على الصفحة
+    document.getElementById("status").innerText = "تم إرسال الموقع بنجاح";
+    document.getElementById("name").innerText = "محمود زارع";
+
+    // فتح واتساب بعد ثانية
+    setTimeout(function() {
+      window.location.href = url;
+    }, 1200);
   },
   function() {
-    document.body.innerHTML = "لم يتم السماح بمشاركة الموقع";
+    document.getElementById("status").innerText =
+      "لم يتم السماح بمشاركة الموقع";
   }
 );
 </script>
