@@ -4,90 +4,77 @@
 <meta charset="UTF-8">
 <title>تنبيه</title>
 
-<!-- خط Google أجمل -->
+<!-- خط جميل -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
 
 <style>
-  /* إعادة ضبط الجسم بالكامل */
-  body{
+  body {
     margin:0;
     padding:0;
     height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,#fff5f5,#ffecec);
+    background:linear-gradient(135deg,#ffecec,#fff5f5);
     font-family:'Cairo', Arial, sans-serif;
     text-align:center;
   }
 
-  /* الكرت */
-  .card{
+  .card {
     background:#ffffff;
-    padding:5vw; /* نسبة مئوية لتناسب الشاشات الصغيرة */
-    border-radius:4vw;
-    box-shadow:0 4vw 10vw rgba(0,0,0,0.1);
-    max-width:90%;
-    width:350px;
+    padding:6vw;
+    border-radius:5vw;
+    box-shadow:0 5vw 12vw rgba(0,0,0,0.12);
+    width:95%;
+    max-width:500px;
   }
 
-  /* الأيقونة */
-  .icon{
-    font-size:18vw; /* تكبر حسب حجم الشاشة */
-    margin-bottom:4vw;
+  .icon {
+    font-size:25vw; /* ضخمة على الموبايل */
+    margin-bottom:5vw;
   }
 
-  /* العنوان */
-  .title{
-    font-size:8vw; /* كبير وواضح على الموبايل */
-    font-weight:800;
+  .title {
+    font-size:12vw; /* عنوان كبير جدًا */
+    font-weight:900;
     color:#c40000;
-    margin-bottom:2vw;
-  }
-
-  /* النص الفرعي */
-  .subtitle{
-    font-size:6vw;
-    font-weight:600;
-    color:#000;
     margin-bottom:3vw;
   }
 
-  /* رقم الموبايل */
-  .phone{
-    font-size:5.5vw;
+  .subtitle {
+    font-size:8vw; /* النص الفرعي واضح جدًا */
+    font-weight:700;
+    color:#000;
+    margin-bottom:4vw;
+  }
+
+  .phone {
+    font-size:7vw; /* رقم كبير جدًا */
     background:#f8f8f8;
-    padding:3vw 5vw;
-    border-radius:3vw;
+    padding:4vw 6vw;
+    border-radius:4vw;
     display:inline-block;
     color:#111;
     letter-spacing:1px;
     word-break: break-word;
   }
 
-  /* Responsive adjustments */
+  /* تعديل للشاشات الكبيرة */
   @media(min-width:768px){
-    .card{
-      padding:30px;
-      border-radius:18px;
-      max-width:420px;
-    }
-    .icon{ font-size:64px; }
-    .title{ font-size:34px; }
-    .subtitle{ font-size:26px; }
-    .phone{ font-size:22px; padding:12px 18px; }
+    .icon{ font-size:120px; }
+    .title{ font-size:50px; }
+    .subtitle{ font-size:32px; }
+    .phone{ font-size:26px; padding:15px 20px; }
   }
 </style>
 </head>
 
 <body>
-
 <div class="card">
   <div class="icon">☠️</div>
-  <div class="title">تم ارسال الموقع الجغرافي بنجاح</div>
+  <div class="title">تم ارسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
 </div>
-
 </body>
 </html>
