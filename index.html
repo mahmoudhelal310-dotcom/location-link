@@ -18,12 +18,12 @@
     font-family:'Cairo', Arial, sans-serif;
     text-align:center;
     overflow:hidden;
-    /* خلفية غامقة وواضحة */
-    background: linear-gradient(135deg, #2a0000, #800000);
+    animation: bgpulse 3s infinite alternate;
+    background: #2a0000;
   }
 
   .card {
-    background: rgba(0,0,0,0.75); /* شبه شفاف ليظهر النص */
+    background: rgba(0,0,0,0.75);
     padding:6vw;
     border-radius:5vw;
     width:90%;
@@ -35,22 +35,23 @@
   .icon {
     font-size:22vw;
     margin-bottom:4vw;
-    animation: shake 0.5s infinite alternate;
+    animation: shake 0.3s infinite alternate;
   }
 
   .title {
     font-size:10vw;
     font-weight:900;
-    color:#ff3333; /* أحمر واضح */
+    color:#ff0000;
     margin-bottom:2vw;
-    animation: blink 1s infinite;
+    animation: blink 0.5s infinite;
   }
 
   .subtitle {
     font-size:7vw;
     font-weight:700;
-    color:#ffffff; /* أبيض للنص الفرعي */
+    color:#ffffff;
     margin-bottom:3vw;
+    animation: blink 1s infinite alternate;
   }
 
   .phone {
@@ -70,14 +71,20 @@
   }
 
   @keyframes shake {
-    0% { transform: rotate(-10deg); }
-    50% { transform: rotate(10deg); }
-    100% { transform: rotate(-10deg); }
+    0% { transform: rotate(-15deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(-15deg); }
   }
 
   @keyframes popin {
     0% {transform: scale(0);}
     100% {transform: scale(1);}
+  }
+
+  @keyframes bgpulse {
+    0% {background: #2a0000;}
+    50% {background: #800000;}
+    100% {background: #2a0000;}
   }
 
   @media(min-width:768px){
@@ -92,9 +99,15 @@
 <body>
 <div class="card">
   <div class="icon">☠️</div>
-  <div class="title">تم ارسال الموقع الجغرافي بنجاح</div>
+  <div class="title">تم ارسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
 </div>
+
+<!-- صوت تحذير عند فتح الصفحة -->
+<audio autoplay>
+  <source src="https://www.soundjay.com/buttons/sounds/beep-07.mp3" type="audio/mpeg">
+</audio>
+
 </body>
 </html>
