@@ -2,10 +2,10 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>تنبيه متحرك</title>
+<title>تحذير خطير</title>
 
-<!-- خط Google جميل -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<!-- خط عربي جميل -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
   body {
@@ -15,49 +15,51 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,#ffecec,#fff5f5);
+    background:linear-gradient(135deg,#8B0000,#FF0000);
     font-family:'Cairo', Arial, sans-serif;
     text-align:center;
+    color:#fff;
+    overflow:hidden;
   }
 
   .card {
-    background:#ffffff;
+    background:#1a0000;
     padding:6vw;
     border-radius:5vw;
-    box-shadow:0 5vw 12vw rgba(0,0,0,0.12);
-    width:95%;
+    width:90%;
     max-width:500px;
-    animation: popin 1s ease forwards;
+    box-shadow:0 5vw 15vw rgba(0,0,0,0.5);
+    animation: popin 0.5s ease forwards;
   }
 
   .icon {
-    font-size:20vw;
-    margin-bottom:5vw;
-    animation: shake 0.8s infinite alternate;
+    font-size:22vw;
+    margin-bottom:4vw;
+    animation: shake 0.5s infinite alternate;
   }
 
   .title {
     font-size:10vw;
     font-weight:900;
-    color:#c40000;
-    margin-bottom:3vw;
+    color:#ff0000;
+    margin-bottom:2vw;
     animation: blink 1s infinite;
   }
 
   .subtitle {
     font-size:7vw;
     font-weight:700;
-    color:#000;
-    margin-bottom:4vw;
+    color:#fff;
+    margin-bottom:3vw;
   }
 
   .phone {
     font-size:6vw;
-    background:#f8f8f8;
+    background:#330000;
     padding:4vw 6vw;
-    border-radius:4vw;
+    border-radius:3vw;
     display:inline-block;
-    color:#111;
+    color:#ff6666;
     letter-spacing:1px;
     word-break: break-word;
   }
@@ -68,9 +70,9 @@
   }
 
   @keyframes shake {
-    0% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
+    0% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
   }
 
   @keyframes popin {
@@ -78,9 +80,8 @@
     100% {transform: scale(1);}
   }
 
-  /* شاشات أكبر */
   @media(min-width:768px){
-    .icon{ font-size:120px; }
+    .icon{ font-size:140px; }
     .title{ font-size:50px; }
     .subtitle{ font-size:32px; }
     .phone{ font-size:26px; padding:15px 20px; }
@@ -91,7 +92,7 @@
 <body>
 <div class="card">
   <div class="icon">☠️</div>
-  <div class="title">تم ارسال الموقع الجغرافي بنجاح</div>
+  <div class="title">تم ارسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
 </div>
