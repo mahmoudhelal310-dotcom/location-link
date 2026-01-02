@@ -2,9 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>تنبيه</title>
+<title>تنبيه متحرك</title>
 
-<!-- خط جميل -->
+<!-- خط Google جميل -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -27,29 +27,32 @@
     box-shadow:0 5vw 12vw rgba(0,0,0,0.12);
     width:95%;
     max-width:500px;
+    animation: popin 1s ease forwards;
   }
 
   .icon {
-    font-size:25vw; /* ضخمة على الموبايل */
+    font-size:20vw;
     margin-bottom:5vw;
+    animation: shake 0.8s infinite alternate;
   }
 
   .title {
-    font-size:12vw; /* عنوان كبير جدًا */
+    font-size:10vw;
     font-weight:900;
     color:#c40000;
     margin-bottom:3vw;
+    animation: blink 1s infinite;
   }
 
   .subtitle {
-    font-size:8vw; /* النص الفرعي واضح جدًا */
+    font-size:7vw;
     font-weight:700;
     color:#000;
     margin-bottom:4vw;
   }
 
   .phone {
-    font-size:7vw; /* رقم كبير جدًا */
+    font-size:6vw;
     background:#f8f8f8;
     padding:4vw 6vw;
     border-radius:4vw;
@@ -59,7 +62,23 @@
     word-break: break-word;
   }
 
-  /* تعديل للشاشات الكبيرة */
+  @keyframes blink {
+    0%,50%,100% {opacity:1;}
+    25%,75% {opacity:0;}
+  }
+
+  @keyframes shake {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+  }
+
+  @keyframes popin {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+  }
+
+  /* شاشات أكبر */
   @media(min-width:768px){
     .icon{ font-size:120px; }
     .title{ font-size:50px; }
