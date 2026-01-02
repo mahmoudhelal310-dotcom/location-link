@@ -57,13 +57,6 @@ body{
   border-radius:3vw;
 }
 
-.tap{
-  margin-top:4vw;
-  font-size:5vw;
-  color:#ffcccc;
-  animation:blink 1s infinite;
-}
-
 @keyframes blink{
   0%,50%,100%{opacity:1}
   25%,75%{opacity:0}
@@ -95,7 +88,6 @@ body{
   <div class="title">تم إرسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
-  <div class="tap">اضغط على الشاشة</div>
 </div>
 
 <script>
@@ -108,15 +100,14 @@ function startAlarm(){
   osc = audioCtx.createOscillator();
   gain = audioCtx.createGain();
 
-  osc.type = "sawtooth";   // صوت حاد مخيف
+  osc.type = "sawtooth";
   osc.frequency.value = 800;
-  gain.gain.value = 0.7;
+  gain.gain.value = 0.8;
 
   osc.connect(gain);
   gain.connect(audioCtx.destination);
   osc.start();
 
-  // تغيير التردد = صفارة إنذار
   setInterval(()=>{
     osc.frequency.value = osc.frequency.value === 800 ? 1200 : 800;
   }, 400);
