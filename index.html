@@ -2,112 +2,121 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تحذير شديد</title>
 
-<!-- خط جميل -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin:0;
-    padding:0;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Cairo', Arial, sans-serif;
-    text-align:center;
-    overflow:hidden;
-    animation: bgpulse 3s infinite alternate;
-    background: #2a0000;
-  }
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Cairo',Arial,sans-serif;
+  text-align:center;
+  background:#2a0000;
+  animation:bgpulse 2s infinite;
+}
 
-  .card {
-    background: rgba(0,0,0,0.85);
-    padding:6vw;
-    border-radius:5vw;
-    width:90%;
-    max-width:500px;
-    box-shadow:0 5vw 15vw rgba(0,0,0,0.6);
-    animation: popin 0.5s ease forwards;
-  }
+.card{
+  background:rgba(0,0,0,0.85);
+  width:92%;
+  max-width:520px;
+  padding:6vw;
+  border-radius:5vw;
+  box-shadow:0 0 40px rgba(255,0,0,0.6);
+  animation:pop 0.4s ease-out;
+}
 
-  .icon {
-    font-size:25vw;
-    margin-bottom:4vw;
-    animation: shake 0.25s infinite alternate;
-  }
+.icon{
+  font-size:26vw;
+  animation:shake 0.2s infinite;
+}
 
-  .title {
-    font-size:12vw;
-    font-weight:900;
-    color:#ff0000;
-    margin-bottom:2vw;
-    animation: blink 0.3s infinite;
-  }
+.title{
+  font-size:12vw;
+  color:#ff0000;
+  font-weight:900;
+  animation:blink 0.35s infinite;
+}
 
-  .subtitle {
-    font-size:8vw;
-    font-weight:700;
-    color:#ffffff;
-    margin-bottom:3vw;
-    animation: blink 0.6s infinite alternate;
-  }
+.subtitle{
+  font-size:8vw;
+  color:#fff;
+  margin-top:2vw;
+}
 
-  .phone {
-    font-size:7vw;
-    background: #330000;
-    padding:4vw 6vw;
-    border-radius:3vw;
-    display:inline-block;
-    color:#ff9999;
-    letter-spacing:1px;
-    word-break: break-word;
-  }
+.phone{
+  margin-top:4vw;
+  font-size:7vw;
+  background:#330000;
+  color:#ffb3b3;
+  padding:4vw;
+  border-radius:3vw;
+}
 
-  @keyframes blink {
-    0%,50%,100% {opacity:1;}
-    25%,75% {opacity:0;}
-  }
+.tap{
+  margin-top:4vw;
+  font-size:5vw;
+  color:#ffcccc;
+  animation:blink 1s infinite;
+}
 
-  @keyframes shake {
-    0% { transform: rotate(-20deg); }
-    50% { transform: rotate(20deg); }
-    100% { transform: rotate(-20deg); }
-  }
+@keyframes blink{
+  0%,50%,100%{opacity:1}
+  25%,75%{opacity:0}
+}
 
-  @keyframes popin {
-    0% {transform: scale(0);}
-    100% {transform: scale(1);}
-  }
+@keyframes shake{
+  0%{transform:rotate(-20deg)}
+  50%{transform:rotate(20deg)}
+  100%{transform:rotate(-20deg)}
+}
 
-  @keyframes bgpulse {
-    0% {background: #2a0000;}
-    50% {background: #b20000;}
-    100% {background: #2a0000;}
-  }
+@keyframes pop{
+  from{transform:scale(0)}
+  to{transform:scale(1)}
+}
 
-  @media(min-width:768px){
-    .icon{ font-size:160px; }
-    .title{ font-size:60px; }
-    .subtitle{ font-size:36px; }
-    .phone{ font-size:28px; padding:15px 20px; }
-  }
+@keyframes bgpulse{
+  0%{background:#2a0000}
+  50%{background:#b00000}
+  100%{background:#2a0000}
+}
+
+@media(min-width:768px){
+  .icon{font-size:160px}
+  .title{font-size:60px}
+  .subtitle{font-size:36px}
+  .phone{font-size:28px}
+  .tap{font-size:22px}
+}
 </style>
 </head>
 
-<body>
+<body onclick="playAlarm()">
+
 <div class="card">
   <div class="icon">☠️</div>
-  <div class="title">تم ارسال الموقع بنجاح</div>
+  <div class="title">تم إرسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
+  <div class="tap">اضغط على الشاشة</div>
 </div>
 
-<!-- صوت تحذير قوي وطويل -->
-<audio autoplay>
+<audio id="alarm" loop>
   <source src="https://www.soundjay.com/alarms/sounds/air-raid-siren-03.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+function playAlarm(){
+  const a = document.getElementById("alarm");
+  a.volume = 1.0; // أعلى صوت
+  a.play();
+}
+</script>
 
 </body>
 </html>
