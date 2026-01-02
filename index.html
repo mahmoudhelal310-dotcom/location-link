@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>تحذير خطير</title>
 
-<!-- خط عربي جميل -->
+<!-- خط جميل -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -15,15 +15,15 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,#8B0000,#FF0000);
     font-family:'Cairo', Arial, sans-serif;
     text-align:center;
-    color:#fff;
     overflow:hidden;
+    /* خلفية غامقة وواضحة */
+    background: linear-gradient(135deg, #2a0000, #800000);
   }
 
   .card {
-    background:#1a0000;
+    background: rgba(0,0,0,0.75); /* شبه شفاف ليظهر النص */
     padding:6vw;
     border-radius:5vw;
     width:90%;
@@ -41,7 +41,7 @@
   .title {
     font-size:10vw;
     font-weight:900;
-    color:#ff0000;
+    color:#ff3333; /* أحمر واضح */
     margin-bottom:2vw;
     animation: blink 1s infinite;
   }
@@ -49,17 +49,17 @@
   .subtitle {
     font-size:7vw;
     font-weight:700;
-    color:#fff;
+    color:#ffffff; /* أبيض للنص الفرعي */
     margin-bottom:3vw;
   }
 
   .phone {
     font-size:6vw;
-    background:#330000;
+    background: #330000;
     padding:4vw 6vw;
     border-radius:3vw;
     display:inline-block;
-    color:#ff6666;
+    color:#ff9999;
     letter-spacing:1px;
     word-break: break-word;
   }
