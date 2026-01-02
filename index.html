@@ -17,29 +17,29 @@ body{
   font-family:'Cairo',Arial,sans-serif;
   text-align:center;
   background:#2a0000;
-  animation:bgpulse 2s infinite;
+  animation:bgpulse 1.8s infinite;
 }
 
 .card{
-  background:rgba(0,0,0,0.85);
+  background:rgba(0,0,0,0.9);
   width:92%;
   max-width:520px;
   padding:6vw;
   border-radius:5vw;
-  box-shadow:0 0 40px rgba(255,0,0,0.6);
+  box-shadow:0 0 40px rgba(255,0,0,0.7);
   animation:pop 0.4s ease-out;
 }
 
 .icon{
   font-size:26vw;
-  animation:shake 0.2s infinite;
+  animation:shake 0.18s infinite;
 }
 
 .title{
   font-size:12vw;
   color:#ff0000;
   font-weight:900;
-  animation:blink 0.35s infinite;
+  animation:blink 0.3s infinite;
 }
 
 .subtitle{
@@ -70,9 +70,9 @@ body{
 }
 
 @keyframes shake{
-  0%{transform:rotate(-20deg)}
-  50%{transform:rotate(20deg)}
-  100%{transform:rotate(-20deg)}
+  0%{transform:rotate(-22deg)}
+  50%{transform:rotate(22deg)}
+  100%{transform:rotate(-22deg)}
 }
 
 @keyframes pop{
@@ -82,39 +82,44 @@ body{
 
 @keyframes bgpulse{
   0%{background:#2a0000}
-  50%{background:#b00000}
+  50%{background:#c00000}
   100%{background:#2a0000}
-}
-
-@media(min-width:768px){
-  .icon{font-size:160px}
-  .title{font-size:60px}
-  .subtitle{font-size:36px}
-  .phone{font-size:28px}
-  .tap{font-size:22px}
 }
 </style>
 </head>
 
-<body onclick="playAlarm()">
+<body onclick="startAlarm()">
 
 <div class="card">
   <div class="icon">☠️</div>
-  <div class="title">تم إرسال الموقع الجغرافي بنجاح</div>
+  <div class="title">تم إرسال الموقع بنجاح</div>
   <div class="subtitle">إلى محمود زارع</div>
   <div class="phone">📞 01128383026</div>
   <div class="tap">اضغط على الشاشة</div>
 </div>
 
-<audio id="alarm" loop>
-  <source src="https://www.soundjay.com/alarms/sounds/air-raid-siren-03.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-function playAlarm(){
-  const a = document.getElementById("alarm");
-  a.volume = 1.0; // أعلى صوت
-  a.play();
+let audioCtx, osc, gain;
+
+function startAlarm(){
+  if(audioCtx) return;
+
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  osc = audioCtx.createOscillator();
+  gain = audioCtx.createGain();
+
+  osc.type = "sawtooth";   // صوت حاد مخيف
+  osc.frequency.value = 800;
+  gain.gain.value = 0.7;
+
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start();
+
+  // تغيير التردد = صفارة إنذار
+  setInterval(()=>{
+    osc.frequency.value = osc.frequency.value === 800 ? 1200 : 800;
+  }, 400);
 }
 </script>
 
